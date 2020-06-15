@@ -18,46 +18,51 @@ $btRight.css("right", "2rem");
 */
 
 /******************* 전역설정 ********************/
-mainSlide(".main-wrap");
+//Slide.scale(".main-wrap", ".banner", onComplete);
+//Slide.scale(".main-wrap2", ".banner", onComplete);
+
+
+/******************* 슬라이드 객체형 ********************/
+/*
+var slide = new Slide(".main-wrap", ".banner", "scale", onComplete);
+function onComplete(prevSlide, nextSlide, container) {
+	$(prevSlide).find(".slogan").css({"opacity": 0, "transform": "scale(0.5)"});
+	$(prevSlide).find(".writer").css({"opacity": 0, "transform": "translateY(5vw)"});
+	$(nextSlide).find(".slogan").css({"opacity": 1, "transform": "scale(1)"});
+	$(nextSlide).find(".writer").css({"opacity": 1, "transform": "translateY(0)"});
+}
+*/
+
+/******************* 슬라이드 직접코딩 ********************/
+var mainNow = 0;
+var mainSlide = $(".main-wrap > .banner");
+var mainLast = mainSlide.length - 1;
+mainInit();
+
+function mainInit() {
+	$(".main-wrap > .banner").remove();
+	$(".main-wrap").append(mainSlide[mainNow]);
+}
+function mainAni() {
+	// 1. 바뀐 mainNow번째 그림을 scale(1.3), opacity: 0 인 상태로 화면에 붙일것
+	// 2. 붙인 그림을 animation시킬것(css값 변경)
+	// 3. 애니메이션이 완료되면 mainInit()을 실행하여 원상태로 만들것
+}
+
+function onMainPrev() {
+	mainNow = (mainNow == 0) ? mainLast : mainNow - 1;
+	mainAni();
+}
+function onMainNext() {
+	mainNow = (mainNow == mainLast) ? 0 : mainNow + 1;
+	mainAni();
+}
+$(".main-wrap > .bt-prev").click(onMainPrev);
+$(".main-wrap > .bt-next").click(onMainNext);
 
 
 
 /******************* 사용자 함수 ********************/
-function mainSlide(container) {
-	var now = 0;
-	var $container = $(container).addClass("slide-wrap");
-	var $slide = $container.children("*").addClass("slide").css("transition", "0.5s");
-	var $btPrev = $('<div class="bt bt-prev"></div>').appendTo($container).click(onPrev);
-	var $btNext = $('<div class="bt bt-next"></div>').appendTo($container).click(onNext);
-	// console.log($slide);
-	var last = $slide.length - 1;
-
-	function init() {
-		$btPrev.show();
-		$btNext.show();
-		$container.children(".slide").remove();
-		$($slide[now]).appendTo($container);
-	}
-	function ani() {
-		$($slide[now]).appendTo($container).css({"opacity": 0, "transform": "scale(1.2)"});
-		setTimeout(function(){
-			$container.children(".slide").eq(0).css({"opacity": 0, "transform": "scale(0.7)"});
-			$container.children(".slide").eq(1).css({"opacity": 1, "transform": "scale(1)"});
-			setTimeout(init, 500);
-		}, 0);
-	}
-	function onPrev() {
-		$(this).hide();
-		now = (now == 0) ? now = last : now - 1;
-		ani();
-	}
-	function onNext() {
-		$(this).hide();
-		now = (now == 2) ? now = 0 : now + 1;
-		ani();
-	}
-	init();
-}
 
 
 
