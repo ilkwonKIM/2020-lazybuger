@@ -42,11 +42,7 @@ var mainTitles = [
 	"Coffee should be black as hell,<br>strong as death and sweet as love.",
 	"What goes best with a cup of coffee?<br>Another cup!"
 ];
-var mainWriters = [
-	"Rian Aditia",
-	"Turkish Proverb",
-	"Henry Rollins",
-]
+var mainWriters = ["Rian Aditia", "Turkish Proverb", "Henry Rollins"];
 $(".main-wrap").find(".slogan").html(mainTitles[mainNow]);
 $(".main-wrap").find(".writer > span").html(mainWriters[mainNow]);
 mainInit();
@@ -56,26 +52,25 @@ function mainInit() {
 	// 2. 현재 나타나야 되는 슬라이드(.banner.eq(mainNow))를 붙인다.
 	$(".main-wrap > .banner").remove();
 	$(mainSlide[mainNow]).appendTo(".main-wrap");
-
 }
 function mainAni() {
 	// 1. 바뀐 mainNow번째 그림을 scale(1.3), opacity: 0 인 상태로 화면에 붙일것
 	// 2. 붙인 그림을 animation시킬것(css값 변경)
 	// 3. 애니메이션이 완료되면 mainInit()을 실행하여 원상태로 만들것
-	// 4. 글씨들이 사라지는 애니메이션이 되고, 사라지자마자 글씨내용을 바꿔서 나타나는 애니메이션 된다.
-	 var slide = $(mainSlide[mainNow]).appendTo(".main-wrap").css({"transform": "scale(1.3)", "opacity": 0});
-	 setTimeout(function(){
-		 slide.css({"transform": "scale(1)", "opacity": 1});
-	 },0)
-	 setTimeout(mainInit,500);
-	 $(".main-wrap").find(".slogan").css({"transform":"scale(0.8)","opacity": 0});
-	 $(".main-wrap").find(".writer").css({"transform":"translateY(50px)","opacity": 0});
-	 setTimeout(function(){
+	// 4. 글씨들이 사라지는 애니메이션이 되고, 사라지자마자 내용을 바꿔서 나타나는 애니메이션이 된다.
+	var slide = $(mainSlide[mainNow]).appendTo(".main-wrap").css({"transform": "scale(1.3)", "opacity": 0});
+	setTimeout(function(){
+		slide.css({"transform": "scale(1)", "opacity": 1});
+	}, 0);
+	setTimeout(mainInit, 500);
+	$(".main-wrap").find(".slogan").css({"transform": "scale(0.8)", "opacity": 0});
+	$(".main-wrap").find(".writer").css({"transform": "translateY(50px)", "opacity": 0});
+	setTimeout(function(){
 		$(".main-wrap").find(".slogan").html(mainTitles[mainNow]);
 		$(".main-wrap").find(".writer > span").html(mainWriters[mainNow]);
-		$(".main-wrap").find(".slogan").css({"transform":"scale(1)","opacity": 1});
-		$(".main-wrap").find(".writer").css({"transform":"translateY(0)","opacity": 1});
-	 },750);
+		$(".main-wrap").find(".slogan").css({"transform": "scale(1)", "opacity": 1});
+		$(".main-wrap").find(".writer").css({"transform": "translateY(0)", "opacity": 1});
+	}, 1000);
 }
 
 function onMainPrev() {
@@ -113,14 +108,15 @@ function onScroll() {
 		$(".header").css({"top": "auto", "bottom": 0, "position": "absolute"});
 	}
 
-	// .loc-wrap의 background-position-Y 변화
+	// .loc-wrap의 background-position-y 변화
 	var locStart = $(".loc-wrap").offset().top;
 	var locHei = $(".loc-wrap").innerHeight();
-	var locEnd =locStart + locHei + hei
+	var locEnd = locStart + locHei + hei;
 	var locGap = 0;
+	var speed =  400;
 	if(scTop + hei > locStart && scTop + hei < locEnd) {
-		locGap = (scTop + hei - locStart) / (locStart + locHei); //0 ~ 100
-		console.log(locGap);
+		locGap = (speed/2) - Math.round((scTop + hei - locStart) / (locEnd - locStart) * speed);
+		$(".loc-wrap").css("background-position-y", locGap + "%");
 	}
 }
 
