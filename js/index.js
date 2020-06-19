@@ -20,7 +20,7 @@ $btRight.css("right", "2rem");
 /******************* 전역설정 ********************/
 //Slide.scale(".main-wrap", ".banner", onComplete);
 //Slide.scale(".main-wrap2", ".banner", onComplete);
-var KAKAO_KEY = '5b52395e4fe9918575d4ea328865fc09';
+var KAKAO_KEY = '32029a7749fd11da301a43a23f4cf61b';
 
 
 /******************* 슬라이드 객체형 ********************/
@@ -216,7 +216,7 @@ $(".news-wrapper > .bt-right").click(onNewsRight);
 
 $.get("../json/news.json", onnewsLoad);
 function onnewsLoad(r) {
-	console.log(r.news)
+	console.log(r.news);
 	newsLast = r.news.length - 1;
 	var html = '';
 	for(var i in r.news) {
@@ -224,7 +224,7 @@ function onnewsLoad(r) {
 		html += '<div class="news-img">';
 		html += '<img src="'+r.news[i].src+'" class="img">';
 		html += '<div class="badge-tag">';
-		for(var j in r.news[i].badge){
+		for(var j in r.news[i].badge) {
 			html += '<div class="badge">'+r.news[i].badge[j]+'</div>';
 		}
 		html += '</div>';
@@ -235,7 +235,7 @@ function onnewsLoad(r) {
 		html += '</div>';
 		html += '<div class="news-title">'+r.news[i].title+'</div>';
 		html += '<div class="news-tag">';
-		for(var j in r.news[i].tag){
+		for(var j in r.news[i].tag) {
 			html += '<span class="tag">'+r.news[i].tag[j]+'</span>';
 		}
 		html += '</div>';
@@ -275,18 +275,20 @@ function newsAni() {
 }
 
 /******************* press 동적 생성 ********************/
-$.get("../json/press.json",onPressLoad)
+$.get("../json/press.json", onPressLoad);
 function onPressLoad(r) {
 	var html;
-	 for(var i in r.press) {
-		 html = '<li class="press">';
-		 html += '<div class="logo"><img src="'+r.press[i].logo+'"></div>';
-		 html += '<div class="cont">'+r.press[i].content+'</div>';
-		 html += '<div class="writer">'+r.press[i].writer+'</div>';
-		 html += '</li>';
-		 $(".press-ul").append(html);
-	 }
+	for(var i in r.press) {
+		html  = '<li class="press">';
+		html += '	<div class="logo"><img src="'+r.press[i].logo+'"></div>';
+		html += '	<div class="cont">'+r.press[i].content+'</div>';
+		html += '	<div class="writer">'+r.press[i].writer+'</div>';
+		html += '</li>';
+		$(".press-ul").append(html);
+	}
 }
+
+
 
 /******************* 사용자 함수 ********************/
 
@@ -296,21 +298,19 @@ function onPressLoad(r) {
 function onResize() {
 	this.wid = $(this).innerWidth();
 	this.hei = $(this).innerHeight();
-
-
-	if(wid > 991){
-	 prdLeft = -25;
-	 newsLeft = -33.3333;
-	}	
-	else if(wid > 767){
+	if(wid > 991) {
+		prdLeft = -25;
+		newsLeft = -33.3333;
+	}
+	else if(wid > 767) {
 		prdLeft = -33.3333;
 		newsLeft = -50;
 	}
-	else if(wid > 479){
+	else if(wid > 479) {
 		prdLeft = -50;
 		newsLeft = -100;
-	} 
-	else if(wid <= 479){
+	}
+	else if(wid <= 479) {
 		prdLeft = -100;
 		newsLeft = -100;
 	}
@@ -333,10 +333,21 @@ function onScroll() {
 	var locHei = $(".loc-wrap").innerHeight();
 	var locEnd = locStart + locHei + hei;
 	var locGap = 0;
-	var speed = 400;
+	var locSpeed = 400;
 	if(scTop + hei > locStart && scTop + hei < locEnd) {
-		locGap = (speed/2) - Math.round((scTop + hei - locStart) / (locEnd - locStart) * speed);
+		locGap = (locSpeed/2) - Math.round((scTop + hei - locStart) / (locEnd - locStart) * locSpeed);
 		$(".loc-wrap").css("background-position-y", locGap + "%");
+	}
+
+	// .press-wrap의 background-position-y 변화
+	var pressStart = $(".press-wrap").offset().top;
+	var pressHei = $(".press-wrap").innerHeight();
+	var pressEnd = pressStart + pressHei + hei;
+	var pressGap = 0;
+	var pressSpeed = 200;
+	if(scTop + hei > pressStart && scTop + hei < pressEnd) {
+		pressGap = (pressSpeed/2) - Math.round((scTop + hei - pressStart) / (pressEnd - pressStart) * pressSpeed);
+		$(".press-wrap").css("background-position-y", pressGap + "%");
 	}
 }
 
