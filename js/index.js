@@ -20,7 +20,7 @@ $btRight.css("right", "2rem");
 /******************* 전역설정 ********************/
 //Slide.scale(".main-wrap", ".banner", onComplete);
 //Slide.scale(".main-wrap2", ".banner", onComplete);
-var KAKAO_KEY = '32029a7749fd11da301a43a23f4cf61b';
+var KAKAO_KEY = '5b52395e4fe9918575d4ea328865fc09';
 
 
 /******************* 슬라이드 객체형 ********************/
@@ -136,7 +136,7 @@ function prdAni() {
 }
 
 /******************* Location 동적 생성 ********************/
-$.get("../json/location.json", onLocationLoad);
+$.get("../json/locations.json", onLocationLoad);
 function onLocationLoad(r) {
 	var html = '';
 	for(var i in r.locs) {
@@ -299,6 +299,7 @@ function onResize() {
 	this.wid = $(this).innerWidth();
 	this.hei = $(this).innerHeight();
 	if(wid > 991) {
+		onNaviHide();
 		prdLeft = -25;
 		newsLeft = -33.3333;
 	}
@@ -328,6 +329,16 @@ function onScroll() {
 		$(".header").css({"top": "auto", "bottom": 0, "position": "absolute"});
 	}
 
+	// .page의 현재 page 찾기
+	var nowPage = -10;
+	for(var i = $(".page").length -1; i>=0; i--){
+		if($(".page").eq(i).offset().top < scTop ) {
+			nowPage = i;
+			break;
+		}
+	}
+	$(".navi-mo").find(".navi").css("color","#333")
+	$(".navi-mo").find(".navi").eq(nowPage).css("color","#e6ac65")
 	// .loc-wrap의 background-position-y 변화
 	var locStart = $(".loc-wrap").offset().top;
 	var locHei = $(".loc-wrap").innerHeight();
@@ -349,8 +360,37 @@ function onScroll() {
 		pressGap = (pressSpeed/2) - Math.round((scTop + hei - pressStart) / (pressEnd - pressStart) * pressSpeed);
 		$(".press-wrap").css("background-position-y", pressGap + "%");
 	}
+
+	// .bt-top show/hide
+	(scTop > hei) ? $(".bt-top").show() : $(".bt-top").hide();
+}
+
+function onTop() {
+	$("html, body").stop().animate({"scrollTop": 0}, 500);
+}
+
+function onNaviShow() {
+	$(".navi-mo").css("display", "block");
+	setTimeout(function(){
+		$(".header .bt-close").css("opacity", 1);
+		$(".navi-mo").css("background-color","rgba(0,0,0,0.8)")
+		$(".navi-mo").find(".navi-wing").css("right", 0);
+	}, 0);
+}
+
+function onNaviHide() {
+	$(".navi-mo").css("background-color","transparent")
+	$(this).stop().animate({"opacity": 0}, 500, function(){
+		$(".navi-mo").find(".navi-wing").css("right", "-320px");
+		setTimeout(function(){
+			$(".navi-mo").css("display", "none");
+		}, 500);
+	});
 }
 
 /******************* 이벤트 설정 ********************/
 $(window).resize(onResize).trigger("resize");
 $(window).scroll(onScroll).trigger("scroll");
+$(".bt-top").click(onTop);
+$(".header .navi-bars").click(onNaviShow);
+$(".header .bt-close").click(onNaviHide);
