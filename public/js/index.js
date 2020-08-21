@@ -20,7 +20,7 @@ $btRight.css("right", "2rem");
 /******************* 전역설정 ********************/
 //Slide.scale(".main-wrap", ".banner", onComplete);
 //Slide.scale(".main-wrap2", ".banner", onComplete);
-var KAKAO_KEY = '5b52395e4fe9918575d4ea328865fc09';
+var KAKAO_KEY = '32029a7749fd11da301a43a23f4cf61b';
 
 
 /******************* 슬라이드 객체형 ********************/
@@ -331,14 +331,15 @@ function onScroll() {
 
 	// .page의 현재 page 찾기
 	var nowPage = -10;
-	for(var i = $(".page").length -1; i>=0; i--){
-		if($(".page").eq(i).offset().top <= scTop ) {
+	for(var i = $(".page").length - 1; i>=0; i--) {
+		if(	$(".page").eq(i).offset().top <= scTop	) {
 			nowPage = i;
 			break;
 		}
 	}
-	$(".navi-mo").find(".navi").css("color","#333")
-	$(".navi-mo").find(".navi").eq(nowPage).css("color","#e6ac65")
+	$(".navi-mo").find(".navi").css("color", "#333");
+	$(".navi-mo").find(".navi").eq(nowPage).css("color", "#e6ac65");
+
 	// .loc-wrap의 background-position-y 변화
 	var locStart = $(".loc-wrap").offset().top;
 	var locHei = $(".loc-wrap").innerHeight();
@@ -373,13 +374,13 @@ function onNaviShow() {
 	$(".navi-mo").css("display", "block");
 	setTimeout(function(){
 		$(".header .bt-close").css("opacity", 1);
-		$(".navi-mo").css("background-color","rgba(0,0,0,0.8)")
+		$(".navi-mo").css("background-color", "rgba(0,0,0,0.8)");
 		$(".navi-mo").find(".navi-wing").css("right", 0);
 	}, 0);
 }
 
 function onNaviHide() {
-	$(".navi-mo").css("background-color","transparent")
+	$(".navi-mo").css("background-color", "transparent");
 	$(this).stop().animate({"opacity": 0}, 500, function(){
 		$(".navi-mo").find(".navi-wing").css("right", "-320px");
 		setTimeout(function(){
@@ -390,10 +391,11 @@ function onNaviHide() {
 
 function onNaviClick() {
 	var tar = $(".page").eq($(this).index()).offset().top + 1;
-	$("html,body").stop().animate({"scrollTop":tar},500)
+	$("html, body").stop().animate({"scrollTop": tar}, 500);
 }
+
 function onLogoClick() {
-	$("html,body").stop().animate({"scrollTop":0},500)
+	$("html, body").stop().animate({"scrollTop": 0}, 500);
 }
 
 /******************* 이벤트 설정 ********************/
@@ -402,6 +404,6 @@ $(window).scroll(onScroll).trigger("scroll");
 $(".bt-top").click(onTop);
 $(".header .navi-bars").click(onNaviShow);
 $(".header .bt-close").click(onNaviHide);
-$(".header .navi").click(onNaviClick);
-$(".header .navi-mo .navi").click(onNaviClick);
-$(".header .logo").click(onLogoClick);
+$(".header > .navi").click(onNaviClick);
+$(".header > .navi-mo .navi").click(onNaviClick);
+$(".header > .logo").click(onLogoClick);
