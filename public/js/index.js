@@ -20,7 +20,7 @@ $btRight.css("right", "2rem");
 /******************* 전역설정 ********************/
 //Slide.scale(".main-wrap", ".banner", onComplete);
 //Slide.scale(".main-wrap2", ".banner", onComplete);
-var KAKAO_KEY = '32029a7749fd11da301a43a23f4cf61b';
+//var KAKAO_KEY = '32029a7749fd11da301a43a23f4cf61b';
 
 
 /******************* 슬라이드 객체형 ********************/
@@ -34,13 +34,14 @@ function onComplete(prevSlide, nextSlide, container) {
 }
 */
 /******************* 슬라이드 직접코딩 ********************/
+
 var mainNow = 0;
 var mainSlide = $(".main-wrap > .banner");
 var mainLast = mainSlide.length - 1;
 var mainTitles = [
-	"There's nothing sweeter<br>than a cup of bitter coffee.",
-	"Coffee should be black as hell,<br>strong as death and sweet as love.",
-	"What goes best with a cup of coffee?<br>Another cup!"
+	"There's nothing sweeter<br>than a cup of bitter Buger.",
+	"Buger should be black as hell,<br>strong as death and sweet as love.",
+	"What goes best with a Buger?<br>Another Buger!"
 ];
 var mainWriters = ["Rian Aditia", "Turkish Proverb", "Henry Rollins"];
 $(".main-wrap").find(".slogan").html(mainTitles[mainNow]);
