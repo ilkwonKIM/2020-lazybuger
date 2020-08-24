@@ -14,7 +14,7 @@
 		{
 			"id": 3,
 			"src": "../img/2.classic.jpg",
-			"title": "Classic Buger chess",
+			"title": "Classic Buger cheese",
 			"price": "￦9200"
 		},
 		{
@@ -25,51 +25,51 @@
 		},
 		{
 			"id": 5,
-			"src": "../img/c-sl-021-800x800.jpg",
-			"title": "Pour Over Coffee",
+			"src": "../img/4.makit.jpg",
+			"title": "Make it Double",
 			"price": "￦8500"
 		},
 		{
 			"id": 6,
-			"src": "../img/c-sl-0125-800x800.jpg",
-			"title": "Cappuccino",
+			"src": "../img/5.lazygarlic.jpg",
+			"title": "Garlic Buger",
 			"price": "￦8700"
 		},
 		{
 			"id": 7,
-			"src": "../img/c-sl-016-800x800.jpg",
-			"title": "Classic Cheesecake",
-			"price": "￦4.50"
+			"src": "../img/6.avocado.jpg",
+			"title": "Avocado Buger",
+			"price": "￦8500"
 		},
 		{
 			"id": 8,
-			"src": "../img/c-sl-014-800x800.jpg",
-			"title": "Chocolate Cake",
-			"price": "￦3.99"
+			"src": "../img/onionring.png",
+			"title": "OnionRing",
+			"price": "￦5500"
 		},
 		{
 			"id": 9,
-			"src": "../img/c-sl-0129-800x800.jpg",
-			"title": "Vegan Cheesecake",
-			"price": "￦2.50"
+			"src": "../img/fre.jpg",
+			"title": "French Fries",
+			"price": "￦3000"
 		},
 		{
 			"id": 10,
-			"src": "../img/c-sl-0130-800x800.jpg",
-			"title": "American Pancakes",
-			"price": "￦4.50"
+			"src": "../img/chessfren.jpg",
+			"title": "Cheese French Fries",
+			"price": "￦4000"
 		},
 		{
 			"id": 11,
-			"src": "../img/c-sl-013-800x800.jpg",
-			"title": "Apple Pie",
-			"price": "￦2.99"
+			"src": "../img/chi.png",
+			"title": "Chili French Fries",
+			"price": "￦4500"
 		},
 		{
 			"id": 12,
-			"src": "../img/c-sl-0127-800x800.jpg",
-			"title": "Chocolate Ice Сream",
-			"price": "￦2.99"
+			"src": "../img/cheesestick.png",
+			"title": "Cheese Stick",
+			"price": "￦5000"
 		}
 	]
 }

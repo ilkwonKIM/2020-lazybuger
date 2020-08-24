@@ -43,7 +43,7 @@ var mainTitles = [
 	"Buger should be black as hell,<br>strong as death and sweet as love.",
 	"What goes best with a Buger?<br>Another Buger!"
 ];
-var mainWriters = ["Rian Aditia", "Turkish Proverb", "Henry Rollins"];
+var mainWriters = ["ChanwooPark", "MinsuckKwon", "IlkwonKim"];
 $(".main-wrap").find(".slogan").html(mainTitles[mainNow]);
 $(".main-wrap").find(".writer > span").html(mainWriters[mainNow]);
 mainInit();
