@@ -1,7 +1,7 @@
 {
 	"locs": [
-		{"src": "../img/location1.jpg", "cont": "Morbi vel nisi condimentum, efficitur orci at, vehicula velit. Maecenas ut euismod diam. Integer aliquet turpis eunis!efficitur orci at, vehicula velit.", "addr": "421, Brooklyn, New York", "time": "9 AM / 22 PM", "tel": "+1 354 454878", "lat": "37.498744", "lon": "127.026720"},
-		{"src": "../img/location2.jpg", "cont": "Integer iaculis justo lacus, consectetur semper massa consectetur at. Integer vitae est eget elit venenatis efficitur at sit amet ex pulvinar enim commodo semper.", "addr": "421, Brooklyn, New York", "time": "9 AM / 22 PM", "tel": "+1 354 454878", "lat": "37.554518", "lon": "126.936602"},
-		{"src": "../img/location3.jpg", "cont": "Quisque porta felis turpis, et pulvinar enim commodo semper. Vivamus massa elit, sollicitudin non placerat ac, blandit eu risus. Curabitur fermentum lobortis arcu.", "addr": "421, Brooklyn, New York", "time": "9 AM / 22 PM", "tel": "+1 354 454878", "lat": "37.572229", "lon": "126.987115"}
+		{"src": "../img/location1.jpg", "cont": "Morbi vel nisi condimentum, efficitur orci at, vehicula velit. Maecenas ut euismod diam. Integer aliquet turpis eunis!efficitur orci at, vehicula velit.", "addr": "서울시 종로구 창의문로 137", "time": "9 AM / 22 PM", "tel": "02)394-2547", "lat": "37.498744", "lon": "127.026720"},
+		{"src": "../img/location2.jpg", "cont": "Integer iaculis justo lacus, consectetur semper massa consectetur at. Integer vitae est eget elit venenatis efficitur at sit amet ex pulvinar enim commodo semper.", "addr": "고양시 덕양구 서오릉로 740", "time": "9 AM / 22 PM", "tel": "010)6508-7400", "lat": "37.554518", "lon": "126.936602"},
+		{"src": "../img/location3.jpg", "cont": "Quisque porta felis turpis, et pulvinar enim commodo semper. Vivamus massa elit, sollicitudin non placerat ac, blandit eu risus. Curabitur fermentum lobortis arcu.", "addr": "서울시 용산구 이태원로 341", "time": "9 AM / 22 PM", "tel": "010)6508-7400", "lat": "37.572229", "lon": "126.987115"}
 	]
 }
